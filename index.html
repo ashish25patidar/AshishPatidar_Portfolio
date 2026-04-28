@@ -9,8 +9,78 @@
   <!-- ✅ THIS IS THE CRITICAL LINE -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+  <style>
+    /* Resume Section Styles */
+    #resume-section {
+      text-align: center;
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 800px;
+    }
 
+    #resume-section h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .resume-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .resume-modal.open {
+      display: flex;
+    }
+
+    .resume-modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90vw;
+      max-width: 900px;
+      max-height: 90vh;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      background: #f44336;
+      border: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      background: #d32f2f;
+    }
+  </style>
+</head>
 
 <body>
   <!-- Navigation Bar -->
@@ -192,52 +262,80 @@
             <span class="tag">Automation</span>
             <span class="tag">Compliance</span>
           </div>
-        </div><div class="project-card">
-                  <div class="project-header">
-                    <h3>Disabled Dependent Tool</h3>
-                    <span class="project-date">AI & OCR Automation</span>
-                  </div>
-                  <p>
-                    The Disabled Dependent Tool (DD Tool) is a specialized solution designed for managing disabled dependents within the healthcare domain. Built with Java and Angular, it incorporates advanced OCR and AI capabilities to accurately extract information from handwritten documents and forms. This tool streamlines the certification process, automates data entry, and ensures seamless integration with digital records, enhancing efficiency and compliance.
-                  </p>
-                  <div class="project-tags">
-                    <span class="tag">AI</span>
-                    <span class="tag">OCR</span>
-                    <span class="tag">Image Processing</span>
-                    <span class="tag">Automation</span>
-                    <span class="tag">SharePoint</span>
-                    <span class="tag">Database Integration</span>
-                  </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <h3>Disabled Dependent Tool</h3>
+            <span class="project-date">AI & OCR Automation</span>
+          </div>
+          <p>
+            The Disabled Dependent Tool (DD Tool) is a specialized solution designed for managing disabled dependents within the healthcare domain. Built with Java and Angular, it incorporates advanced OCR and AI capabilities to accurately extract information from handwritten documents and forms. This tool streamlines the certification process, automates data entry, and ensures seamless integration with digital records, enhancing efficiency and compliance.
+          </p>
+          <div class="project-tags">
+            <span class="tag">AI</span>
+            <span class="tag">OCR</span>
+            <span class="tag">Image Processing</span>
+            <span class="tag">Automation</span>
+            <span class="tag">SharePoint</span>
+            <span class="tag">Database Integration</span>
+          </div>
 
-                </div>
+        </div>
 
 
       </div>
     </section>
 
     <!-- Contact Section -->
-        <section class="section" id="contact">
-          <h2>Get In Touch</h2>
-          <p class="contact-intro">
-            I'm always interested in hearing about new projects and opportunities.
-            Whether you have a question or just want to say hi, feel free to reach out!
-          </p>
-          <div class="contact-details">
-            <p><strong>Mobile Number:</strong> +91 7828418101</p>
-            <p><strong>Email:</strong> <a href="mailto:getashish25@gmail.com">getashish25@gmail.com</a></p>
-          </div>
-          <div class="contact-links">
-            <a href="mailto:getashish25@gmail.com" class="contact-btn">
-              <i class="fas fa-envelope"></i> Email Me
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="contact-btn">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/ashish25patidar" target="_blank" class="contact-btn">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </div>
-        </section>
+    <section class="section" id="contact">
+      <h2>Get In Touch</h2>
+      <p class="contact-intro">
+        I'm always interested in hearing about new projects and opportunities.
+        Whether you have a question or just want to say hi, feel free to reach out!
+      </p>
+      <div class="contact-details">
+        <p><strong>Mobile Number:</strong> +91 7828418101</p>
+        <p><strong>Email:</strong> <a href="mailto:getashish25@gmail.com">getashish25@gmail.com</a></p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:getashish25@gmail.com" class="contact-btn">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-btn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/ashish25patidar" target="_blank" class="contact-btn">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="section" id="resume-section">
+      <h2>Resume</h2>
+      <div class="resume-buttons">
+        <button class="btn btn-primary" onclick="openResumeModal()">
+          <i class="fas fa-file-pdf"></i> View My Resume
+        </button>
+        <a href="Ashish_Patidar_Resume.pdf" download class="btn btn-secondary">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- Resume Modal -->
+    <div id="resume-modal" class="resume-modal" onclick="closeResumeModal()">
+      <div class="resume-modal-content" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="closeResumeModal()">&times;</button>
+        <iframe
+          src="Ashish_Patidar_Resume.pdf"
+          title="Ashish Patidar Resume"
+          width="100%"
+          height="600px"
+          style="border: none;">
+        </iframe>
+      </div>
+    </div>
 
   </div>
 
@@ -246,6 +344,20 @@
     <p>&copy; 2026 Ashish Patidar</p>
   </footer>
 
+  <script>
+    function openResumeModal() {
+      document.getElementById('resume-modal').classList.add('open');
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resume-modal').classList.remove('open');
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeResumeModal();
+    });
+  </script>
 </body>
 
 </html>
